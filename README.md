@@ -3,6 +3,15 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Tuning the PID parameters
+The paramaters where choosing (manually) the following way:
+1. Tuning the Kp value to the point where the car is nearly oscillating.
+2. Tuning the Kd value to a value till the car passes all curves.
+3. Tuning the Ki value. Zero is fine, but it seems, that a value of 0.0005 is slightly better than choosing zero.
+
+Please have a look @ https://youtu.be/ISyk5ZrmjtA for the video.
+
+
 ## Dependencies
 
 * cmake >= 3.5
