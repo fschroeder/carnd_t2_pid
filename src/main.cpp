@@ -34,14 +34,7 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-
-  // Ziegler and Nichols
-  double kp_krit = 0.05;
-  double t_krit = 0.01;
-  double kp = 0.6 * kp_krit;
-  double ki = 0.5 * t_krit;
-  double kd = 0.125 * kp_krit;
-
+  // Manually choosen -> see README.md
   pid.Init(0.1, 0.0005, 5.0);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
@@ -57,8 +50,8 @@ int main()
         if (event == "telemetry") {
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
-          double speed = std::stod(j[1]["speed"].get<std::string>());
-          double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+          //double speed = std::stod(j[1]["speed"].get<std::string>());
+          //double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
           /*
           * TODO: Calcuate steering value here, remember the steering value is
