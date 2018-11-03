@@ -3,14 +3,39 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
-## Tuning the PID parameters
+## Writeup
+> Student describes the effect of the P, I, D component of the PID algorithm in their implementation
+
+A PID controller tries to reduce the difference between the current value and the desired one - also called "error".
+
+As an example, the given project: The desired value is the center of the road whether the error is the offset of the car. The smaller the error, the more centered the car is.
+
+Since it's a dynamical system it has to recalculate the error periodical.
+
+The control loop could be separated in two different parts:
+1. The controller and
+2. The controlled system
+
+The controlled system is the part in how the input of the system (the steering wheel) affects the output (tires on the road).
+
+As already mentioned, the controller tries to reduce the error between system input and the system output. To do so there are three different types of components:
+1. The proportional,
+2. The integral and
+3. The derivative component
+
+The proportional component is a linear gain of the error. Since the gain doesn't change during time it's not possible (or not in many situation) to use it alone without starting to oscillate.
+
+The integral component integrates the error over the times. It's quite slow but helps reduce the error to zero.
+
+The derivative component "measures" the change over time and can help to avoid a drift of a system.
+
+### Tuning the PID parameters
 The paramaters where choosing (manually) the following way:
 1. Tuning the Kp value to the point where the car is nearly oscillating.
 2. Tuning the Kd value to a value till the car passes all curves.
 3. Tuning the Ki value. Zero is fine, but it seems, that a value of 0.0005 is slightly better than choosing zero.
 
 Please have a look @ https://youtu.be/ISyk5ZrmjtA for the video.
-
 
 ## Dependencies
 
